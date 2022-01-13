@@ -1,0 +1,48 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /pagamento
+  
+spring:
+  application:
+    name: pagamento
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+#      dialect: org.hibernate.dialect.MySQL8Dialect
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  jmx:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/pagamento
+    username: root
+    password: 
+    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: nando.systempro@hotmail.com
+    password: Fe281244
+
+crud:
+  rabbitmq:
+    exchange: crud.exchange
+    queue: crud.produto.queue
+
+security:
+  jwt:
+    token:
+      secret-key: chave-aute-microservices
+      expire-lengt: 360000
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl: 
+      defaultZone: http://localhost:8761/registry/eureka
+     
+    
